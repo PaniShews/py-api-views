@@ -5,8 +5,8 @@ from cinema.views import (
     ActorDetail,
     ActorList,
     CinemaHallViewSet,
-    genre_list,
-    genre_detail,
+    GenreList,
+    GenreDetail,
     MovieViewSet,
 )
 
@@ -18,8 +18,8 @@ router.register(
 )
 router.register("movies", MovieViewSet, basename="movie")
 urlpatterns = [
-    path("genres/", genre_list, name="genre-list"),
-    path("genres/<int:pk>/", genre_detail, name="genre-detail"),
+    path("genres/", GenreList.as_view(), name="genre-list"),
+    path("genres/<int:pk>/", GenreDetail.as_view(), name="genre-detail"),
     path("actors/", ActorList.as_view(), name="actor-list"),
     path(
         "actors/<int:pk>/",
